@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/new1.css" >
+
+		<style type="text/css"></style>
+		<script type="text/jscript" src="js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var oLi=$("#imgF li");
+				var oVie=$("#vie li");
+				var iNow=0;
+				var num=0;
+				var numr=3;
+				var timer=null
+				
+				function aut(){
+					if(num==oLi.length-1){
+						num=0;
+					}else{
+						num++
+					}
+					
+				};
+				
+				$(".imgb-l").click(function(){
+				//	clearInterval(timer);
+					 aut()
+				
+						oLi.each(function(index){
+						oLi.eq(index).fadeOut();
+						
+						oVie.removeClass("active");
+						
+				
+				})
+				oLi.eq(num).fadeIn(1000);
+				oVie.eq(num).addClass("active");
+				Ffl()
+				});
+				
+				$(".imgb-r").click(function(){
+				//	clearInterval(timer);
+					aut()
+					
+							oLi.each(function(index){
+							oLi.eq(index).fadeOut();
+							
+							oVie.removeClass("active");
+							
+					
+					})
+					oLi.eq(num).fadeIn(1000);
+					oVie.eq(num).addClass("active");
+					Ffl()
+				});
+				
+				
+			
+				function Ffl(){
+					
+					clearInterval(timer);
+					timer=setInterval(function(){
+						aut()
+						oLi.each(function(index){
+						oLi.eq(index).fadeOut();
+						
+						oVie.removeClass("active");
+									
+						
+						})
+						oLi.eq(num).fadeIn(1000);
+						oVie.eq(num).addClass("active");
+						
+						
+					},5000)
+				
+				};
+				Ffl()
+windowAddMouseWheel();
+function windowAddMouseWheel() {
+    var scrollFunc = function (e) {
+		
+		var l=0
+        e = e || window.event;
+        if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
+            if (e.wheelDelta > 0) { //当滑轮向上滚动时
+             //   alert("滑轮向上滚动");
+				
+				var top=document.documentElement.scrollTop
+				if(top==0){
+				//	console.log(document.documentElement.scrollTop)
+					$("nav")[0].style.display="none";
+				}
+				
+				
+            }
+            if (e.wheelDelta < 0) { //当滑轮向下滚动时
+             //  alert("滑轮向下滚动");
+			 
+				if(document.documentElement.scrollTop>=100){
+						$("nav")[0].style.display="block";
+					}
+					
+				}
+			
+           
+        } else if (e.detail) {  //Firefox滑轮事件
+            if (e.detail> 0) { //当滑轮向上滚动时
+                alert("滑轮向上滚动");
+            }
+            if (e.detail< 0) { //当滑轮向下滚动时
+                alert("滑轮向下滚动");
+            }
+        }
+    };
+    //给页面绑定滑轮滚动事件
+    if (document.addEventListener) {
+        document.addEventListener('DOMMouseScroll', scrollFunc, false);
+    }
+//滚动滑轮触发scrollFunc方法
+    window.onmousewheel = document.onmousewheel = scrollFunc;
+}
+
+
+
+
+
+
+
+
+
+
+/* $(window).scroll(function(){
+        var doc_height = $(document).height();
+        var scroll_top = $(document).scrollTop(); 
+        var window_height = $(window).height();
+        
+        if(scroll_top == 0){
+            alert("到顶啦");
+        }else if(scroll_top + window_height >= doc_height){
+            alert("到底啦啦");
+        }
+    }); */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+				
+			})
+			
+		</script>
+	</head>
+	<body>
+		<nav>
+			<div class="left">
+				<span>SOLELY</span>
+				<span>TECH</span>
+			</div>
+			<div class="right">
+				<ul>
+					<li><a href="">网站首页</a></li>
+					<li><a  href="">精品案例</a></li>
+					<li><a  href="">新闻中心</a></li>
+					<li><a  href="">技术博客</a></li>
+					<li><a  href="">人才招聘</a></li>
+					<li><a  href="">关于我们</a></li> 
+				</ul>
+				
+			</div>
+		</nav>
+	<header>
+	<div>欢迎光临纯粹科技有限公司官网</div>	
+	<ul>
+		<li>关于我们</li>
+		<li>联系我们</li>
+		<li class="no">网站地图</li>
+	</ul>
+	</header>	
+	<div class="cont">
+		<div class="log">
+			<img src="img/img.png" >
+		</div>
+			
+			<div class="cont-right">
+				<div class="cont-right1">
+					 <div class="img">
+						<img src="img/img1.png" >
+					</div> 
+					<div class="right-text" >
+						<div>工作时间</div>
+						<div>周一至周天8：00至21点</div>
+					</div>
+				</div>
+				
+				<div class="cont-right1">
+					<div class="img">
+						<img src="img/img2.png" >
+					</div> 
+					<div class="right-text" >
+						<div>联系方式</div>
+						<div>电话：18092651090</div>
+					</div>
+				</div> 
+				
+				
+			</div>
+		
+	</div>	
+	
+	<div class="img-con" >
+		<div class="nav">
+			<ul>
+				<li><a href="">网站首页</a></li>
+				<li><a  href="">精品案例</a></li>
+				<li><a  href="">新闻中心</a></li>
+				<li><a  href="">技术博客</a></li>
+				<li><a  href="">人才招聘</a></li>
+				<li><a  href="">关于我们</a></li> 
+			</ul>
+		</div>
+		<ul id="imgF">
+			<li class="img1" >
+				图片1
+				<!-- <img src="img/imgc3.png" > -->	
+			</li>
+			<li class="img2">
+				图片2
+				<!-- <img src="img/imgc3.png" > -->
+				
+			</li>
+			<li class="img3">
+				图片3
+				<!-- <img src="img/imgc3.png" > -->
+				
+			</li>
+		</ul>
+		
+		
+		<ul id="vie">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			
+		</ul>
+		
+		<div class="imgb-l">
+			<div>
+				
+			</div>
+		</div>
+		<div class="imgb-r">
+			<div>
+				
+			</div>
+		</div>
+		
+	</div>
+	
+	<!-- <p class="left">
+			<span>分享到：125px</span>
+			<a title='分享到新浪微博' href="javascript:void(0)" id="fxwb" class="sn">新浪</a>
+			<a title='分享到腾讯微博' href='javascript:void(0)' onclick=posttoWb() class="tx">腾讯</a>
+			<a title="分享到QQ空间" href="javascript:window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+encodeURIComponent(document.location.href));void(0)" class="qq">QQ空间</a>
+		</p> -->
+
+	
+	
+		
+	</body>
+	
+	
+	
+</html>
